@@ -1,27 +1,26 @@
 class Solution {
     public int countVowelSubstrings(String word) {
-        int vow = 0;                      // (1) Answer accumulator: how many valid substrings found
-        int n = word.length();            // (2) Length of input
-        Set<Character> set = new HashSet<>(); // (3) Distinct vowels seen for current start index i
+        int vow = 0;                      
+        int n = word.length();           
+        Set<Character> set = new HashSet<>(); 
 
-        for (int i = 0; i < n - 4; i++)   // (4) i = start of substring; need at least 5 chars left
+        for (int i = 0; i < n - 4; i++)   
         {
-            set.clear();                  // (5) Reset distinct-vowel tracker for this i
+            set.clear();                 
 
-            for (int j = i; j < n; j++)   // (6) j = end of substring (inclusive)
+            for (int j = i; j < n; j++)   
             {
-                char ch = word.charAt(j); // (7) current char
+                char ch = word.charAt(j);
 
                 if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
-                {                          // (8) vowel?
-                    set.add(ch);           // (9) remember we’ve seen this vowel
-                    if (set.size() == 5)   // (10) all five distinct vowels present in [i..j]?
-                        vow++;             // (11) yes → [i..j] is a valid vowel-substring
-                }
-                else                       // (12) consonant encountered
-                    break;                 // (13) stop: substring must be all vowels; no further j for this i
+                {                          
+                    set.add(ch);           
+                    if (set.size() == 5)   
+                        vow++;            
+                else                      
+                    break;                
             }
         }
-        return vow;                        // (14) done
+        return vow;                        
     }
 }
