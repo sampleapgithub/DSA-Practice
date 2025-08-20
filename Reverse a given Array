@@ -1,0 +1,15 @@
+class Solution {
+    public void reverseArray(int arr[]) {
+        // code here
+        int left = 0;                   // (1) Start pointer at beginning
+        int right = arr.length - 1;     // (2) End pointer at last element
+
+        while (left < right) {          // (3) Continue until two pointers meet
+            int temp = arr[left];       // (4) Store left element in temp
+            arr[left] = arr[right];     // (5) Copy right element to left
+            arr[right] = temp;          // (6) Copy temp to right
+            left++;                     // (7) Move left pointer forward
+            right--;                    // (8) Move right pointer backward
+        }
+    }
+}
